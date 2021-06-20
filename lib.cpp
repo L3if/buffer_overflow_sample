@@ -19,6 +19,7 @@ character::character(char username[], bool requestgod) {
         std::cin >> temp;
         godmode = (temp == adminpass);
     }
+    this->printstats();
 }
 
 void character::changename(char *newname, bool requestgod) {
