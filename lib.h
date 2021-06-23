@@ -9,6 +9,7 @@
 #endif
 #include <random>
 #include <iostream>
+#include <cstring>
 int randint(int min, int max);
 class character{
 public:

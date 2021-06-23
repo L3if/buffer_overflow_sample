@@ -3,7 +3,7 @@
 //
 
 #include "lib.h"
-
+#include <cstring>
 int randint(int min, int max){
     std::random_device dev;
     std::mt19937 rng(dev());
@@ -23,7 +23,7 @@ character::character(char username[], bool requestgod) {
 }
 
 void character::changename(char *newname, bool requestgod) {
-    strcpy(this->name, newname);
+    *name = *newname;
     if (requestgod){
         std::cout << "Please enter admin password:\n";
         std::string temp{0};
@@ -41,8 +41,14 @@ void character::printstats() {
 }
 
 void character::printitem(int id) {
-    std::cout << "Item is: " << items[id] << "\n";
-    return;
+    if (id < 0 || id > items->length()){
+        std::cout << "Error" << "\n";
+        return;
+    }
+    else {
+        std::cout << "Item is: " << items[id] << "\n";
+        return;
+    }
 }
 
 
